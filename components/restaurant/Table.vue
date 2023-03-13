@@ -12,7 +12,7 @@
     <h1>TOP 50: THE RANKING</h1>
     <div class="table-container">
       <div class="table-col">
-        <RestaurantRow :isHeader="true" />
+        <RestaurantRow :index="0" :isHeader="true" />
         <RestaurantRow
           v-for="(restaurant, index) in restaurantsOrganized.first"
           :key="restaurant.id"
@@ -22,7 +22,7 @@
         />
       </div>
       <div class="table-col">
-        <RestaurantRow :isHeader="true" />
+        <RestaurantRow :index="0" :isHeader="true" />
         <RestaurantRow
           v-for="(restaurant, index) in restaurantsOrganized.second"
           :key="restaurant.id"

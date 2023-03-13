@@ -6,14 +6,16 @@
     isHeader?: boolean;
   }
 
-  const props = defineProps<RowProps>();
+  defineProps<RowProps>();
 
-  const bgColor = (index: number) =>
-    index % 2 === 0 ? { background: 'rgba(128,128,128,0.15)' } : '';
+  const bgColor = (index: number) => {
+    if (index % 2 === 0) return { background: 'rgba(128,128,128,0.15)' };
+    else return '';
+  };
 </script>
 
 <template>
-  <div class="row" v-if="isHeader">
+  <div v-if="isHeader" class="row">
     <h4 class="header">Rank</h4>
     <h4 class="header">Chain</h4>
   </div>
