@@ -4,6 +4,11 @@
   const route = useRoute();
   const name = route.params.name;
   const restaurant = restaurants.find((r) => r.name === name);
+
+  useHead({
+    title: `Restaurantly | ${restaurant?.name}`,
+    meta: [{ name: 'description', content: `${restaurant?.content}` }],
+  });
 </script>
 
 <template>
@@ -29,6 +34,10 @@
     </NuxtLayout>
 
     <div class="restaurant-not-found" v-else>
+      <Html>
+        <Title>Restaurant not found</Title>
+        <Meta name="description" content="Restaurant not found" />
+      </Html>
       <NuxtLayout name="error">
         <template #header>
           <h1>Restaurant not found</h1>
